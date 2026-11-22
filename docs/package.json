@@ -1,0 +1,26 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "nn-diagram reference > public/reference.md && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nn-diagram/editor": "workspace:^",
+    "@nn-diagram/viewer": "workspace:^",
+    "katex": "^0.19.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5",
+    "nn-diagram": "workspace:^",
+    "vite": "^7",
+    "typescript": "^5"
+  }
+}

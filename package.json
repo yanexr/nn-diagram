@@ -1,0 +1,20 @@
+{
+  "name": "nn-diagram-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter \"./packages/*\" build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "diagram": "pnpm --filter nn-diagram dev",
+    "docs": "pnpm --filter docs dev",
+    "docs:build": "pnpm --filter docs build",
+    "release": "pnpm build && pnpm test && pnpm -r publish --access public"
+  },
+  "packageManager": "pnpm@11.0.8",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tsdown": "^0.23.2",
+    "tw-animate-css": "^1.4.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "nn-diagram",
+  "description": "Agent skill for writing, checking and rendering nn-diagram files",
+  "owner": { "name": "yanexr" },
+  "plugins": [
+    {
+      "name": "nn-diagram",
+      "source": "./",
+      "description": "Write, edit, check and render diagrams in the nn-diagram format (*.diagram.jsx)"
+    }
+  ]
+}

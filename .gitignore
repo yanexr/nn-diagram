@@ -1,0 +1,15 @@
+node_modules
+dist
+*.tsbuildinfo
+.DS_Store
+
+# Private benchmarks and their results
+packages/benchmarks/
+
+# Copied into the packages when packing (scripts/prepack.mjs)
+packages/*/LICENSE
+packages/*/NOTICE
+packages/cli/skill/
+
+# Local settings of the Claude desktop app
+.claude/

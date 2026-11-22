@@ -1,0 +1,51 @@
+{
+  "name": "@nn-diagram/format",
+  "version": "0.1.0",
+  "description": "Parser, serializer, validator and format reference for nn-diagram files (*.diagram.jsx)",
+  "license": "Apache-2.0",
+  "author": "yanexr",
+  "homepage": "https://yanexr.github.io/nn-diagram/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanexr/nn-diagram.git",
+    "directory": "packages/format"
+  },
+  "bugs": "https://github.com/yanexr/nn-diagram/issues",
+  "keywords": [
+    "diagram",
+    "jsx",
+    "parser",
+    "llm",
+    "nn-diagram"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsdown --config-loader native",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepack": "node ../../scripts/prepack.mjs"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.5",
+    "@types/node": "^22"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ]
+}

@@ -1,0 +1,7 @@
+# nn-diagram
+
+> A diagram format written as JSX + Tailwind (*.diagram.jsx), meant to be read and written by people and LLMs. Files are parsed, never executed.
+
+- [Format reference](https://yanexr.github.io/nn-diagram/reference.md): every element, prop, default and allowed value
+- [Agent skill](https://github.com/yanexr/nn-diagram/blob/main/skills/nn-diagram/SKILL.md): how to write, check and render diagrams
+- [CLI](https://www.npmjs.com/package/nn-diagram): `npx nn-diagram check|fmt|render|reference|skill`

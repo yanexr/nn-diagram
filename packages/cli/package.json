@@ -1,0 +1,54 @@
+{
+  "name": "nn-diagram",
+  "version": "0.1.0",
+  "description": "Check, format and render nn-diagram files (SVG, PNG, PDF), and install the agent skill",
+  "license": "Apache-2.0",
+  "author": "yanexr",
+  "homepage": "https://yanexr.github.io/nn-diagram/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanexr/nn-diagram.git",
+    "directory": "packages/cli"
+  },
+  "bugs": "https://github.com/yanexr/nn-diagram/issues",
+  "keywords": [
+    "diagram",
+    "cli",
+    "jsx",
+    "svg",
+    "llm",
+    "agent-skill",
+    "nn-diagram"
+  ],
+  "type": "module",
+  "bin": {
+    "nn-diagram": "./bin/nn-diagram.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "skill",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsdown --config-loader native",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "prepack": "node ../../scripts/prepack.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.19.0",
+    "playwright-core": "^1.58.0"
+  },
+  "devDependencies": {
+    "@nn-diagram/format": "workspace:^",
+    "@nn-diagram/viewer": "workspace:^",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}

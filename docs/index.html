@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nn-diagram</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: light dark; --fg: #1a1a1a; --muted: #666; --bg: #fff; --line: #e5e5e5; --code: #f5f5f5; }
+      @media (prefers-color-scheme: dark) { :root { --fg: #e8e8e8; --muted: #999; --bg: #0a0a0a; --line: #2a2a2a; --code: #161616; } }
+      body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
+      main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+      h1 { font-size: 28px; margin: 0 0 8px; }
+      h2 { font-size: 19px; margin: 48px 0 8px; }
+      a { color: inherit; }
+      p, ul { margin: 8px 0; }
+      code, pre { font: 13.5px/1.5 ui-monospace, monospace; background: var(--code); border-radius: 4px; }
+      code { padding: 1px 4px; }
+      pre { padding: 12px 14px; overflow-x: auto; }
+      pre code { padding: 0; background: none; }
+      .muted { color: var(--muted); }
+      #example { height: 300px; margin: 24px 0 8px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+      details { margin: 0 0 8px; }
+      summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>nn-diagram</h1>
+      <p>A JSX-based diagram format with a visual editor, CLI, and interactive React viewer.</p>
+      <p>
+        Each diagram is a plain text file (<code>*.diagram.jsx</code>) written with JSX and Tailwind classes. Every element
+        has explicit coordinates, so the layout in the file matches what is rendered. Shapes can carry hover notes in
+        Markdown and LaTeX, diagrams can have walk-through steps, and exports are SVG, PDF, PNG, JPEG, and WebP.
+      </p>
+      <p>
+        <a href="editor/">Editor</a> ·
+        <a href="reference.md">Format reference</a> ·
+        <a href="https://github.com/yanexr/nn-diagram">GitHub</a>
+      </p>
+
+      <div id="example"></div>
+      <details>
+        <summary>Source of this diagram</summary>
+        <pre><code id="example-source"></code></pre>
+      </details>
+
+      <h2>With an AI agent</h2>
+      <p>Install the skill, then ask your agent to draw or edit <code>*.diagram.jsx</code> files.</p>
+      <pre><code>npx skills add yanexr/nn-diagram</code></pre>
+      <p class="muted">
+        In Claude Code you can also add it as a plugin: <code>/plugin marketplace add yanexr/nn-diagram</code>.
+        <code>npx nn-diagram skill</code> copies the skill into <code>.agents/skills/</code> of your project.
+      </p>
+      <p>
+        Open the same file in the <a href="editor/">editor</a> (File → Open) to adjust it by hand. In Chrome and Edge the
+        editor saves back to the file and reloads it when the agent changes it.
+      </p>
+
+      <h2>Command line</h2>
+      <pre><code>npx nn-diagram check diagrams/           # find errors
+npx nn-diagram render flow.diagram.jsx   # PNG next to the file
+npx nn-diagram render flow.diagram.jsx -f svg -t dark
+npx nn-diagram fmt diagrams/             # rewrite in the standard form</code></pre>
+      <p class="muted">Rendering uses an installed Chrome, Edge or Chromium.</p>
+
+      <h2>In a React app</h2>
+      <pre><code>npm install @nn-diagram/viewer katex</code></pre>
+      <pre><code>import { DiagramViewer } from "@nn-diagram/viewer";
+import "@nn-diagram/viewer/styles.css";
+import "katex/dist/katex.min.css";
+
+&lt;DiagramViewer source={text} /&gt;</code></pre>
+      <p>The editor works the same way:</p>
+      <pre><code>import { DiagramEditor, DEFAULT_LIBRARY } from "@nn-diagram/editor";
+import "@nn-diagram/editor/styles.css";
+
+&lt;DiagramEditor libraries={[...DEFAULT_LIBRARY, mySection]} onSave={(source) =&gt; store(source)} /&gt;</code></pre>
+      <p>
+        Both come with a neutral look in light and dark mode. To match your site's colors, font and corner radius, set a
+        few CSS variables, for example:
+      </p>
+      <pre><code>:root {
+  --primary: #4f46e5;       /* buttons and highlights */
+  --radius: 0.5rem;         /* corner radius */
+  --font-sans: "Inter", sans-serif;
+}</code></pre>
+      <p class="muted">
+        Dark mode follows the <code>dark</code> class on <code>&lt;html&gt;</code>. The variables are the ones
+        <a href="https://ui.shadcn.com/docs/theming">shadcn/ui</a> uses (<code>--background</code>,
+        <code>--foreground</code>, <code>--border</code>, …), so a shadcn site matches without any changes.
+      </p>
+
+      <h2>License</h2>
+      <p>
+        Apache-2.0. The arrow routing is ported from <a href="https://github.com/jgraph/drawio">draw.io</a>
+        (Apache-2.0, JGraph Ltd).
+      </p>
+    </main>
+    <script type="module" src="./src/example.tsx"></script>
+  </body>
+</html>

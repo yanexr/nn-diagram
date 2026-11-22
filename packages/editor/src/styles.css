@@ -1,0 +1,12 @@
+/*
+ * Prebuilt stylesheet entry of @nn-diagram/editor (compiled to dist/styles.css).
+ * It includes the viewer's styles. Apps using Tailwind v4 can skip it and add
+ * the packages to their sources:
+ *   @source "../node_modules/@nn-diagram/editor/dist";
+ *   @source "../node_modules/@nn-diagram/viewer/dist";
+ */
+@import "../../ui/src/base.css";
+
+@source "./";
+@source "../../viewer/src";
+@source "../../ui/src";

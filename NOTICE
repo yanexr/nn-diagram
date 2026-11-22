@@ -1,0 +1,11 @@
+nn-diagram
+Copyright 2026 yanexr
+
+This product includes software derived from draw.io (mxGraph),
+Copyright (c) JGraph Ltd, licensed under the Apache License, Version 2.0
+(https://github.com/jgraph/drawio):
+
+- packages/viewer/src/routing.ts: the orthogonal edge router is a port of
+  mxEdgeStyle.OrthConnector and mxEdgeStyle.SegmentConnector.
+- packages/editor/src/canvas/edges.ts: segment handles for orthogonal arrows
+  are a port of mxEdgeSegmentHandler.
